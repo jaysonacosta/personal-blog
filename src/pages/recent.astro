@@ -21,18 +21,19 @@ const posts = await Astro.glob<Frontmatter>("./posts/*.md");
       >
     </h1>
     <br />
-    {
-      posts.map(({ frontmatter: { title, description, date, slug } }) => {
-        return (
-          <Post
-            title={title}
-            description={description}
-            date={date}
-            slug={slug}
-          />
-        );
-      })
-    }
-    <ul role="list" class="link-card-grid"></ul>
+    <section class="grid grid-cols-2 gap-5">
+      {
+        posts.map(({ frontmatter: { title, description, date, slug } }) => {
+          return (
+            <Post
+              title={title}
+              description={description}
+              date={date}
+              slug={slug}
+            />
+          );
+        })
+      }
+    </section>
   </main>
 </Layout>
